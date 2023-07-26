@@ -38,7 +38,7 @@ round-avatar: true
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
-title-img: "/assets/img/TechToolkit-Logo-Blue.png"
+# title-img: "/assets/img/TechToolkit-Logo-Blue.png"
 
 
 #####################################
@@ -95,7 +95,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "testit.vc"
+# url-pretty: "testit.vc"
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
@@ -118,7 +118,7 @@ edit_page_button: false
 navbar-var-length: false
 
 # The keywords to associate with your website, for SEO purposes
-#keywords: "my,list,of,keywords"
+keywords: "MS Teams,Microsoft,Microsoft Teams,Demo MTR,Lab MTR,Lab Microsoft Teams Room,Demo Microsoft Teams Room,Intune,Cisco,Cisco CMS"
 
 ######################################
 # --- Colours / background image --- #
