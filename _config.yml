@@ -10,21 +10,21 @@
 ############################
 
 # Name of website
-title: My Website
+title: Tech Toolkit
 
 # Your name to show in the footer
-author: Some Person
+author: Tech Toolkit
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
   Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+    - Tech Stuff: "Tech"
+    - Wordpress Site: "https://techblogwiki.azurewebsites.net"
   Author's home: "https://deanattali.com"
+  About Me: "aboutme"
 
 ################
 # --- Logo --- #
