@@ -51,7 +51,7 @@ round-avatar: true
 social-network-links:
   email: "info@testit.vc"
   rss: False  # remove this line if you don't want to show an RSS link at the bottom
-  facebook: deanattali
+  # facebook: deanattali
   github: ljgoe
   # twitter: 
   # patreon: DeanAttali
