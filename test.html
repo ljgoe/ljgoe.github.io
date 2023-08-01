@@ -1,0 +1,343 @@
+---
+layout: page
+title: About me
+
+---
+
+<html lang="en-AU">
+	<head>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="profile" href="http://gmpg.org/xfn/11" />
+		<title>Virtual Microsoft Teams Room Creation &#8211; Tech Toolkit</title>
+<!-- .ht-page -->
+<div class="ht-page ht-page--sidebarright">
+<div class="ht-container">
+
+	
+	
+		<div class="ht-page__content">
+		<article class="hkb-article post-563 ht_kb type-ht_kb status-publish format-standard hentry ht_kb_category-microsoft-teams ht_kb_tag-microsoft ht_kb_tag-mtr ht_kb_tag-teams ht_kb_tag-virtual-mtr" itemscope itemtype="https://schema.org/CreativeWork">
+		<meta itemprop="datePublished" content="July 7, 2023">
+
+			<header class="hkb-article__header">
+				<h1 class="hkb-article__title" itemprop="headline">Virtual Microsoft Teams Room Creation</h1>
+			</header>
+
+			<div class="ht-mobile-toc"><strong class="ht-mobile-toc__title">Contents</strong>            <nav id="navtoc" role="navigation">
+
+                
+
+            <ol class="nav"><!-- adding li --><li class="active"><a href="#prerequisites">Prerequisites:</a><!-- adding li --></li><li class=""><a href="#installation-steps">Installation Steps</a><!-- adding li --></li><li class=""><a href="#output-from-running-script-to-build-mtr-media">Output from Running script to build MTR Media</a><!-- adding li --></li><li class=""><a href="#build-virtual-machine">Build Virtual Machine</a><!-- adding li --></li><li class=""><a href="#login-to-new-mtr">Login to New MTR</a><!-- adding li --></li><li class=""><a href="#teams-room-pro-portal">Teams Room Pro Portal</a><!-- adding li --></li><li class=""><a href="#intune">Intune</a></li></ol><!-- /ht-kb-toc-widget -->
+            </nav>
+
+            </div>			
+			<div class="hkb-article__content" itemprop="text">
+
+				
+<p>This describes how to build a MTR for lab purposes.</p>
+
+
+
+<h2 class="wp-block-heading" id="prerequisites" >Prerequisites:</h2>
+
+
+
+<ul>
+<li>Parallels Desktop or other choice of virtual machine hosting software</li>
+
+
+
+<li>Windows Virtual Machine running windows 11</li>
+
+
+
+<li>Office 365 tennant with administration rights</li>
+
+
+
+<li>Microsoft teams Pro or Basic licence</li>
+
+
+
+<li>Access to the windows 11 Image with these exact specs (<a href="https://files.rg-adguard.net/file/8dadc925-5f9c-2eb9-6b8c-45bc114c2971" target="_blank" rel="noreferrer noopener">here is an example</a>)</li>
+</ul>
+
+
+
+<pre class="wp-block-preformatted has-small-font-size">  Major release: 22H2 (Win 11)
+     Name in VLSC: Windows 11, version 22H2 (updated Sept 2022) x64
+     Size (bytes): 5440065536
+     SHA256: 768A49D9DDB9997E427094D317329E113E6ABE74DBB5707B4AAEB8270ADC6925</pre>
+
+
+
+<div class="wp-block-uagb-advanced-heading uagb-block-6fc8d5cc"><h2 class="uagb-heading-text" id="installation-steps" >Installation Steps</h2></div>
+
+
+
+<ul>
+<li>Install Windows 11</li>
+
+
+
+<li>Download the&nbsp;<a href="https://go.microsoft.com/fwlink/?linkid=867842" target="_blank" rel="noreferrer noopener">CreateSrsMedia.ps1</a>&nbsp;script.</li>
+
+
+
+<li>Run powershell as Admin</li>
+
+
+
+<li>Allow running scripts, execute command</li>
+</ul>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="powershell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">powershell -executionpolicy unrestricted</pre>
+
+
+
+<h2 class="wp-block-heading" id="output-from-running-script-to-build-mtr-media" >Output from Running script to build MTR Media</h2>
+
+
+
+<ul>
+<li>Run script</li>
+</ul>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="powershell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">  C:\teams> .\CreateSrsMedia.ps1</pre>
+
+
+
+<ul>
+<li>What type of customer are you, OEM or Enterprise:Enterprise</li>
+</ul>
+
+
+
+<ul>
+<li>Please indicate what drivers you wish to use with this installation: Choose Option 8 </li>
+</ul>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="775" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2-1024x775.png" alt="" class="wp-image-798" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2-1024x775.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2-300x227.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2-768x581.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2-50x38.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2-1536x1163.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2-60x45.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2-100x76.png 100w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia1-2.png 1844w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<ul>
+<li>Please enter the path to the Windows install ISO file, i put it here:</li>
+</ul>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="raw" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">C:\teams\ISO\windows11.iso</pre>
+
+
+
+<p>The following output shows</p>
+
+
+
+<pre class="wp-block-preformatted has-small-font-size">  Creating UEFI-compatible media.
+
+  Using SRSv2 kit:       C:\teams\SRSDeploymentKit-4.17.51.0.msi
+  Using driver packs:
+  Using Windows ISO:     C:\teams\ISO\windows11.iso
+  ISO mounted at:        G:
+  Using language packs:
+  Using updates:
+  Writing stick:         Lexar USB Flash Drive
+
+  Formatting and partitioning the target drive... done.
+  Copying Windows... done.
+  Copying the installation image... done.
+  Splitting the installation image... done.
+  Injecting drivers... done.
+  Copying Rigel build... done.
+  Configuring unattend files... done.
+  Selecting image... done.
+  Cleaning up... done.</pre>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-1024x619.png" alt="" class="wp-image-660" width="768" height="464" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-1024x619.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-300x181.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-768x465.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-50x30.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-1536x929.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-2048x1239.png 2048w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-60x36.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/CreateMedia2-1-100x60.png 100w" sizes="(max-width: 768px) 100vw, 768px" /></figure>
+
+
+
+<h2 class="wp-block-heading" id="build-virtual-machine" >Build Virtual Machine</h2>
+
+
+
+<p>Once the scripts have run you will have the media required to build the MTR.</p>
+
+
+
+<p>Create new virtual machine and build it from the install file which was created in the previous steps.</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1-1024x687.png" alt="" class="wp-image-597" width="512" height="344" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1-1024x687.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1-300x201.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1-768x516.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1-50x34.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1-1536x1031.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1-60x40.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1-100x67.png 100w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-1.png 1740w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1-1024x605.png" alt="" class="wp-image-598" width="512" height="303" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1-1024x605.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1-300x177.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1-768x454.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1-50x30.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1-1536x907.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1-60x35.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1-100x59.png 100w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-2-1.png 1652w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1-1024x720.png" alt="" class="wp-image-599" width="512" height="360" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1-1024x720.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1-300x211.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1-768x540.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1-50x35.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1-1536x1080.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1-60x42.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1-100x70.png 100w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-3-1.png 1622w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1-1024x684.png" alt="" class="wp-image-600" width="512" height="342" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1-1024x684.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1-300x200.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1-768x513.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1-50x33.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1-1536x1026.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1-60x40.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1-100x67.png 100w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-4-1.png 1724w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<p>At the final stage, you will see the setup page of your newly installed virtual MTR. You can accept the terms and configure your account, but will end up at this screen which will not allow you to continue.</p>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1.png" alt="" class="wp-image-593" width="512" height="384" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1-300x225.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1-768x576.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1-50x38.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1-60x45.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1-100x75.png 100w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<p>Exit this setup, by going back to the&nbsp;<strong>EULA screen</strong>&nbsp;and press&nbsp;<strong>Exit</strong>.</p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1024x684.png" alt="" class="wp-image-592" width="512" height="342" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1024x684.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-300x200.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-768x513.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-50x33.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-1536x1026.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-60x40.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5-100x67.png 100w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Installation_Assistant-5.png 1724w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<div class="wp-block-uagb-advanced-heading uagb-block-608598d1"><h2 class="uagb-heading-text" id="login-to-new-mtr" >Login to New MTR</h2></div>
+
+
+
+<p>At the user screen, login as the local administrator. </p>
+
+
+
+<ul>
+<li>User: administrator </li>
+</ul>
+
+
+
+<ul>
+<li>Password: “<strong>sfb</strong>” (don&#8217;t forget to change this!)</li>
+</ul>
+
+
+
+<figure class="wp-block-image size-large is-resized is-style-default"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-1024x733.png" alt="" class="wp-image-596" width="512" height="367" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-1024x733.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-300x215.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-768x550.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-50x36.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-1536x1099.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-2048x1466.png 2048w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-60x43.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Loginscreen-100x72.png 100w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<p>Browse to the following folder:<br></p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="raw" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">C:\Users\Skype\AppData\Local\Packages\Microsoft.SkypeRoomSystem_8wekyb3d8bbwe\LocalState</pre>
+
+
+
+<p>Create a new&nbsp;<em>SkypeSettings.xml</em>-file with the following settings:</p>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="xml" data-enlighter-theme="wpcustom" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">    &lt;SkypeSettings>
+    	&lt;UserAccount>
+    		&lt;SkypeSignInAddress>test@test.com&lt;/SkypeSignInAddress>
+    		&lt;ExchangeAddress>test@test.com&lt;/ExchangeAddress>
+    		&lt;Password>test&lt;/Password>
+    	&lt;/UserAccount>
+    &lt;/SkypeSettings></pre>
+
+
+
+<p>Reboot the MTR and it will use the XML file to configure the account. Thats it, the device should be registered and ready to test. </p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-1024x704.png" alt="" class="wp-image-624" width="512" height="352" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-1024x704.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-300x206.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-768x528.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-50x34.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-1536x1056.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-2048x1407.png 2048w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-60x41.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-Success-100x69.png 100w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<p>After a software update the new Teams UI should show</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-1024x745.png" alt="" class="wp-image-625" width="512" height="373" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-1024x745.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-300x218.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-768x558.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-50x36.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-1536x1117.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-2048x1489.png 2048w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-60x44.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/TeamsRoom-New-UI-100x73.png 100w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<h2 class="wp-block-heading" id="teams-room-pro-portal" >Teams Room Pro Portal</h2>
+
+
+
+<p>The device should now also show in the <a rel="noreferrer noopener" href="https://portal.rooms.microsoft.com/" target="_blank">T</a><a rel="noreferrer noopener" href="https://portal.rooms.microsoft.com/" target="_blank">eams Room Pro Management Portal</a> if you have the teams room pro licence</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-1024x261.png" alt="" class="wp-image-629" width="768" height="196" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-1024x261.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-300x77.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-768x196.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-50x13.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-1536x392.png 1536w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-60x15.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-100x26.png 100w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management.png 1669w" sizes="(max-width: 768px) 100vw, 768px" /></figure>
+
+
+
+<p>Click on the device name and enrol it</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-Enroll-1024x797.png" alt="" class="wp-image-630" width="768" height="598" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-Enroll-1024x797.png 1024w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-Enroll-300x234.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-Enroll-768x598.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-Enroll-50x39.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-Enroll-60x47.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-Enroll-100x78.png 100w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Teams_Rooms_Pro_Management-Enroll.png 1029w" sizes="(max-width: 768px) 100vw, 768px" /></figure>
+
+
+
+<p>Initially there will be issues shown which will resolve after a few minutes and only valid issues will be shown. Since this is a Virtual Machine there will be issues as seen in the second screenshot below</p>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Enrolled.png" alt="" class="wp-image-633" width="755" height="585" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Enrolled.png 1007w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Enrolled-300x232.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Enrolled-768x595.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Enrolled-50x39.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Enrolled-60x46.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Enrolled-100x77.png 100w" sizes="(max-width: 755px) 100vw, 755px" /></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" loading="lazy" src="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Issues_Shown.png" alt="" class="wp-image-638" width="734" height="590" srcset="https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Issues_Shown.png 979w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Issues_Shown-300x241.png 300w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Issues_Shown-768x617.png 768w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Issues_Shown-50x40.png 50w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Issues_Shown-60x48.png 60w, https://techblogwiki.azurewebsites.net/wp-content/uploads/2023/07/Microsoft_Teams_Rooms_Pro-Issues_Shown-100x80.png 100w" sizes="(max-width: 734px) 100vw, 734px" /></figure>
+
+
+
+<h2 class="wp-block-heading" id="intune" >Intune</h2>
+
+
+
+<p>Usefull links to deply to Intune</p>
+
+
+
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/mem/intune/enrollment/windows-bulk-enroll" target="_blank" rel="noreferrer noopener">Bulk enroll into intune</a></li>
+
+
+
+<li><a href="https://techcommunity.microsoft.com/t5/intune-customer-success/enrolling-microsoft-teams-rooms-on-windows-devices-with/ba-p/3246986" target="_blank" rel="noreferrer noopener">Enrolling Microsoft Teams Rooms on Windows devices with Microsoft Endpoint Manager</a></li>
+
+
+
+<li><a href="https://blog.mindcore.dk/2022/04/how-to-enroll-microsoft-teams-rooms/" target="_blank" rel="noreferrer noopener">Guide site</a></li>
+
+
+
+<li></li>
+
+
+</div>
+
+
+<!-- /.ht-site-container -->
+</body>
+</html>
